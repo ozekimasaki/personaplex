@@ -1,36 +1,43 @@
 # PersonaPlex on Google Colab
 
-This folder contains a Google Colab notebook that launches the PersonaPlex Web UI.
+ このフォルダには、PersonaPlex の Web UI を Google Colab 上で起動するためのノートブックが入っています。
 
-## Colab badge (for your fork)
+ ## Colabリンク（フォーク向け）
 
-Replace `{YOUR_GITHUB}` and `{YOUR_BRANCH}` with your fork info:
+ `{YOUR_GITHUB}` と `{YOUR_BRANCH}` をあなたのフォーク情報に置き換えてください。
 
-https://colab.research.google.com/github/{YOUR_GITHUB}/personaplex/blob/{YOUR_BRANCH}/colab/PersonaPlex_WebUI_Colab.ipynb
+ https://colab.research.google.com/github/{YOUR_GITHUB}/personaplex/blob/{YOUR_BRANCH}/colab/PersonaPlex_WebUI_Colab.ipynb
 
-## What you get
+ ## できること
 
-- A Colab notebook that:
-  - installs dependencies (avoiding `sounddevice` which often fails on Colab)
-  - authenticates to Hugging Face (required)
-  - launches `moshi.server` with a public tunnel URL
+ - Colabノートブックから以下を一括実行します。
+   - 依存関係のインストール（Colabで失敗しがちな `sounddevice` は回避）
+   - Hugging Face 認証（必須）
+   - `moshi.server` を起動し、外部からアクセス可能なトンネルURLを表示
 
-## Prerequisites
+ ## 事前準備（必須）
 
-- A Google Colab runtime with GPU enabled.
-- A Hugging Face account.
-- You must accept the model license on:
-  - https://huggingface.co/nvidia/personaplex-7b-v1
+ - Google Colab のランタイムを **GPU** に設定
+   - Runtime → Change runtime type → Hardware accelerator: **GPU**
+ - Hugging Face アカウント
+ - モデルのライセンス承諾（gated）
+   - https://huggingface.co/nvidia/personaplex-7b-v1
+   - ページ上で「Agree/Accept/Use」などを押して承諾してください
 
-## Run
+ ## 実行手順
 
-Open and run:
+ 以下を開いて上から実行します。
 
-- `PersonaPlex_WebUI_Colab.ipynb`
+ - `PersonaPlex_WebUI_Colab.ipynb`
 
-The notebook will print a public tunnel URL after the server starts. Open that URL to access the Web UI.
+ ノートブック内で以下のチェックが走ります。
+ - GPUが有効になっているか（CUDAチェック）
+ - Hugging Face の gated repo にアクセスできるか（`voices.tgz` の事前チェック）
 
-## Notes
+ サーバ起動後、ログに **public tunnel URL** が表示されるので、そのURLをブラウザで開いて Web UI にアクセスしてください。
 
-- This repository code is MIT licensed. Model weights are under the NVIDIA Open Model License and are not redistributed here.
-- The notebook expects you to provide your own Hugging Face token at runtime.
+ ## 注意
+
+ - このリポジトリのコードは MIT License です。
+ - モデル重みは NVIDIA Open Model License で提供されます。このフォークでは重みを同梱せず、実行時に各自の環境でダウンロードします。
+ - ノートブック実行時に Hugging Face へのログインが必要です（トークンは各自で用意してください）。
