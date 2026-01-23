@@ -1,10 +1,11 @@
 numpy>=1.26,<2.2
 safetensors>=0.4.0,<0.5
-huggingface-hub>=0.24,<0.25
+huggingface-hub>=0.34,<1.0
 einops==0.7
 sentencepiece==0.2
 sphn>=0.1.4,<0.2
 aiohttp>=3.10.5,<3.11
 gradio>=4.0.0
+packaging
 # torch is intentionally not pinned here; Colab typically provides a compatible CUDA build.
 # If torch is missing or too old, install a CUDA build in the notebook.
