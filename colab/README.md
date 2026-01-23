@@ -24,6 +24,14 @@
    - https://huggingface.co/nvidia/personaplex-7b-v1
    - ページ上で「Agree/Accept/Use」などを押して承諾してください
 
+ ## GPUメモリ（VRAM）について
+
+ PersonaPlex 7B はモデルが大きく、初期化時点でGPUメモリを大量に消費します。
+ 
+ - T4（約16GB）では **ロード時にOOM（CUDA out of memory）になりやすい**です
+ - 可能なら **A100 40GB 以上**など、より大きいGPUでの実行を推奨します
+ - もし量子化済み（4bit/8bit）チェックポイントが提供されている場合は、それを使うと動く可能性があります
+
  ## 実行手順
 
  以下を開いて上から実行します。
